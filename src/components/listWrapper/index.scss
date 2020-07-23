@@ -1,0 +1,12 @@
+@import '../../scss/var';
+
+.list-wrapper {
+  width: 270px;
+  margin-right: 25px;
+  min-height: 85vh;
+  height: 100%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

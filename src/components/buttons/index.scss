@@ -1,0 +1,33 @@
+@import '../../scss/var';
+
+.buttons {
+  button {
+    border: none;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .res {
+    width: 80px;
+    background-color: #5aac44;
+    color: #fff;
+    &:hover {
+      background-color: #6fd154fb;
+    }
+  }
+
+  .rej {
+    width: 40px; 
+    color: rgb(105, 105, 105);
+    &:hover {
+      color: #000;
+    }
+  }
+}

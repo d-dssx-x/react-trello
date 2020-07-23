@@ -1,0 +1,51 @@
+.dialog__header {
+  display: flex;
+  position: relative;
+  width: 100%;
+  color: rgba($color: #313131, $alpha: .80);
+
+  i {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    font-size: 20px;
+  }
+
+  button {
+    position: absolute;
+    right: -5px;
+    top: -10px;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    i {
+      font-size: 20px;
+      color: rgba($color: #313131, $alpha: .50);
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      i {
+        color: rgba($color: #313131, $alpha: 1);
+      }
+    }
+  }
+
+  .textarea {
+    min-height: 20px;
+    font-size: 20px;
+    margin: 0 ;
+    padding: 10px;
+    margin-left: 25px;
+    margin-right: 35px;
+    background-color: #fff;
+    &:focus {
+      border: none;
+      outline: 2px solid rgba(28,110,164,0.35);
+    }
+  }
+
+
+}

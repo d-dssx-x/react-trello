@@ -1,0 +1,9 @@
+@import '../../scss/var';
+
+.lists {
+  margin-top: $header-height;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  overflow: visible;
+}

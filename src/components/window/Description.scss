@@ -1,0 +1,31 @@
+.dialog__desc {
+  i {
+    position: absolute;
+
+    top: -3px;
+    left: -35px;
+
+    font-size: 20px;
+    color: rgba($color: #313131, $alpha: 1);
+  }
+
+  .textarea {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #fff;
+    font-size: 15px;
+    resize: none;
+    overflow: hidden;
+    background-color: rgba($color: #313131, $alpha: .05);
+    border-radius: 6px;
+    &::placeholder {
+      font-size: 15px;
+    }
+
+    &:focus {
+      overflow-y: auto;
+      border: none;
+      outline: 2px solid rgba(28,110,164,0.35);
+    }
+  }
+}

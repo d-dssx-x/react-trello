@@ -1,0 +1,29 @@
+@import '../../scss/var';
+
+
+.list {
+  position: relative;
+  min-width: 270px;
+  width: 270px;
+  background-color: $list-background-color;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: $border-radius;
+  word-wrap: break-word;
+  
+
+  &:last-child {
+    margin-right: 0;
+  }
+  textarea {
+    width: 100%;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 20px;
+    border: none;
+    background-color: $list-background-color;
+    color: $font-color;
+    overflow: hidden;
+    resize: none;
+  }
+}

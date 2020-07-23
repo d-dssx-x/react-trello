@@ -1,0 +1,61 @@
+@import '../../scss/var';
+.cover {
+  position: absolute;
+  top: 30px;
+  right: -50px;
+  height: 300px;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid rgba(9,30,66,.13);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  .title {
+    padding: 5px 0;
+    position: relative;
+    text-align: center;
+
+    i {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: rgba(9,30,66,.13);
+      cursor: pointer;
+      &:hover {
+        color: rgba(9,30,66,.5);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 180px;
+      height: 1px;
+      background-color: rgba(9,30,66,.13);
+      left: 10px;
+      top: 35px;
+    }
+  }
+  .colors {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      .color {
+        width: 50px;
+        height: 30px;
+        margin: 5px;
+        border-radius: $border-radius;
+        cursor: pointer;
+        border-color: #333;
+        &:hover {
+          opacity: .5;
+        }
+      }
+    }
+  }
+}
