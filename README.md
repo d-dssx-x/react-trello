@@ -1,3 +1,7 @@
+## Deploy 
+Open[https://react-trello-app.netlify.app/](https://react-trello-app.netlify.app/)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
