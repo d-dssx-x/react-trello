@@ -3,11 +3,13 @@ import List from '../list/'
 import './index.scss'
 import {useDrop} from 'react-dnd'
 import {ITEM_TYPE} from '../../constants'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {changeStatus} from '../../redux/actions'
 
 const ListWrapper = (props) => {
-  const {dispatch, id} = props
+  const {id} = props
+  const dispatch = useDispatch()
+
   const [, drop] = useDrop({
     accept: ITEM_TYPE,
     drop(item, monitor) {
@@ -28,5 +30,5 @@ const ListWrapper = (props) => {
 }
 
 
-export default connect()(ListWrapper)
+export default ListWrapper
 

@@ -1,12 +1,14 @@
 import React from 'react'
 import './Checklist.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {checkdItemChecklist,
   changeItemTitleChecklist,
   deleteItemChecklist} from '../../redux/actions'
 
 
-const CheckItem = ({title, id, done, owner, dispatch}) => {
+const CheckItem = ({title, id, done, owner}) => {
+  const dispatch = useDispatch()
+
   const onChangeCheckboxHandler = (event) => {
     dispatch(checkdItemChecklist({
       owner,
@@ -51,4 +53,4 @@ const CheckItem = ({title, id, done, owner, dispatch}) => {
 }
 
 
-export default connect()(CheckItem)
+export default CheckItem

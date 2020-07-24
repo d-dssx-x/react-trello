@@ -1,5 +1,13 @@
 @import '../../scss/var';
 
+
+.container {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  overflow: auto;
+}
 .lists {
   margin-top: $header-height;
   padding: 20px;

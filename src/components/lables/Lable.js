@@ -1,12 +1,15 @@
 import React, {useState, useRef, useEffect} from 'react'
 import './index.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {changeTag, changeTagTitle} from '../../redux/actions'
 
-const Lable = ({color, id, title, currentTag, targ, dispatch}) => {
+const Lable = ({color, id, title, currentTag, targ}) => {
   const [disable, setDisable] = useState(true)
   const [selected, setSelected] = useState(null)
   const ref = useRef()
+
+  const dispatch = useDispatch()
+
   const disableHandler = () => {
     return setDisable(!disable)
   }
@@ -66,10 +69,5 @@ const Lable = ({color, id, title, currentTag, targ, dispatch}) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    tags: state.tags,
-  }
-}
 
-export default connect(mapStateToProps)(Lable)
+export default Lable

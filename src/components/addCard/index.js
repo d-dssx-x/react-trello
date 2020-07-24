@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import './index.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {addNewTask} from '../../redux/actions'
 import TextareaBlock from '../textareaBlock'
 
-const AddCard = ({status, dispatch}) => {
+const AddCard = ({status}) => {
   const [show, setShow] = useState(false)
   const [title, setTitle] = useState('')
+
+  const dispatch = useDispatch()
 
   const clear = () => {
     setTitle('')
@@ -61,4 +63,4 @@ const AddCard = ({status, dispatch}) => {
   )
 }
 
-export default connect()(AddCard)
+export default AddCard

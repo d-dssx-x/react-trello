@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import './index.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {addCoverColor} from '../../redux/actions'
 
 
-const Color = ({color, id, dispatch, current}) => {
+const Color = ({color, id, current}) => {
   const [opacity, setOpacity] = useState({})
-
+  const dispatch = useDispatch()
   const onClickHandler = () => {
     if (current === color) {
       return dispatch(addCoverColor({
@@ -33,4 +33,4 @@ const Color = ({color, id, dispatch, current}) => {
   )
 }
 
-export default connect()(Color)
+export default Color

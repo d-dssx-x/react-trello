@@ -1,9 +1,10 @@
 import React from 'react'
 import './Lables.scss'
-import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 
-const Lables = ({tag, tags}) => {
-  const {color} = tags.find((el) => el.id === tag)
+const Lables = ({tag}) => {
+  const {color} = useSelector((state) => state.tags)
+      .find((el) => el.id === tag)
   return (
     <div className="window__lables">
       <span>Lables</span>
@@ -16,10 +17,4 @@ const Lables = ({tag, tags}) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    tags: state.tags,
-  }
-}
-
-export default connect(mapStateToProps)(Lables)
+export default Lables

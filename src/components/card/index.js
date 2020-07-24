@@ -1,19 +1,20 @@
 import React, {useRef, useState, useEffect} from 'react'
 import './index.scss'
 import Window from '../window/'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {useDrag, useDrop} from 'react-dnd'
 import {ITEM_TYPE} from '../../constants/'
 import {switchCards} from '../../redux/actions'
 import TagWrapper from '../tagWrapper'
 
 
-const Card = ({item, title, index, status, color, tag, dispatch}) => {
+const Card = ({item, title, index, status, color, tag}) => {
   const ref = useRef(null)
   const refHelp = useRef(null)
   const [showWindow, setShowWindow] = useState(false)
   const [textColor, setTextColor] = useState('#000')
   const [showShowTag, setShowTag] = useState(false)
+  const dispatch = useDispatch()
   const [, drop] = useDrop({
     accept: ITEM_TYPE,
     hover(item, monitor) {
@@ -102,4 +103,4 @@ const Card = ({item, title, index, status, color, tag, dispatch}) => {
 }
 
 
-export default connect()(Card)
+export default Card

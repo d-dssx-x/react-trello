@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import './index.scss'
 import Cover from '../cover'
 import Lables from '../lables/'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {addCheckList} from '../../redux/actions'
 
 
 const Menu = (props) => {
-  const {id, tag, checklist, dispatch} = props
+  const {id, tag, checklist} = props
+
+  const dispatch = useDispatch()
+
   const [showCover, setShowCover] = useState(false)
   const [showLables, setShowLables] = useState(false)
   const onClickShowCoverHandler = () => {
@@ -53,7 +56,8 @@ const Menu = (props) => {
   )
 }
 
-export default connect()(Menu)
+export default Menu
+
 
 const Button = ({title, onClick}) => {
   return (

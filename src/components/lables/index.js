@@ -1,10 +1,11 @@
 import React from 'react'
 import './index.scss'
-import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 import Lable from './Lable'
 
 
-const Lables = ({tags, onCancel, currentTag, targ}) => {
+const Lables = ({onCancel, currentTag, targ}) => {
+  const tags = useSelector((state) => state.tags)
   return (
     <div className="lables">
       <div className="title">
@@ -23,10 +24,5 @@ const Lables = ({tags, onCancel, currentTag, targ}) => {
     </div>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    tags: state.tags,
-  }
-}
 
-export default connect(mapStateToProps)(Lables)
+export default Lables

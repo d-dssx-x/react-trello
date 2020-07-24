@@ -1,10 +1,11 @@
 import React from 'react'
 import './index.scss'
-import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 
-const TagWrapper = ({tag, tags}) => {
-  const {color, title} = tags.find((el) => el.id === tag)
+const TagWrapper = ({tag}) => {
+  const {color, title} = useSelector((state) => state.tags)
+      .find((el) => el.id === tag)
   return (
     <div
       style={{backgroundColor: color}}
@@ -15,10 +16,6 @@ const TagWrapper = ({tag, tags}) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    tags: state.tags,
-  }
-}
 
-export default connect(mapStateToProps)(TagWrapper)
+export default TagWrapper
+

@@ -1,11 +1,13 @@
 import React, {useRef} from 'react'
 import './Header.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {changeTitle} from '../../redux/actions'
 import Textarea from 'react-textarea-autosize'
 
-const Header = ({title, id, color, dispatch, onCancel}) => {
+const Header = ({title, id, color, onCancel}) => {
   const ref = useRef(null)
+  const dispatch = useDispatch()
+
   const onChangeHandler = (event) => {
     return dispatch(changeTitle({id, title: event.target.value}))
   }
@@ -44,4 +46,4 @@ const Header = ({title, id, color, dispatch, onCancel}) => {
   )
 }
 
-export default connect()(Header)
+export default Header

@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react'
 import './index.scss'
 import TextareaBlock from '../textareaBlock'
 import {addNewList} from '../../redux/actions'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
-const AddList = ({index, dispatch}) => {
+const AddList = ({index}) => {
   const [show, setShow] = useState(false)
   const [className, setClassName] = useState('')
   const [title, setTitle] = useState('')
+
+  const dispatch = useDispatch()
+
 
   const changeBackgound = (show) => {
     return show ? setClassName('active') : ''
@@ -70,4 +73,4 @@ const AddList = ({index, dispatch}) => {
   )
 }
 
-export default connect()(AddList)
+export default AddList

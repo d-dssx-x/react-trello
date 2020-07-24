@@ -20,7 +20,8 @@ export const changeListTitle = (values) => {
   return {
     type: CHANGE_LIST_TITLE,
     values: {
-      ...values,
+      id: values.id,
+      title: values.title,
     },
   }
 }

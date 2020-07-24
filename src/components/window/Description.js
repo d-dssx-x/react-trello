@@ -1,11 +1,12 @@
 import React from 'react'
 import './Description.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {addDesc} from '../../redux/actions'
 import TextareaAutosize from 'react-textarea-autosize'
 
 
-const Description = ({desc, id, dispatch}) => {
+const Description = ({desc, id}) => {
+  const dispatch = useDispatch()
   const onChangeHandler = (event) => {
     return dispatch(addDesc({id, desc: event.target.value}))
   }
@@ -24,4 +25,4 @@ const Description = ({desc, id, dispatch}) => {
 }
 
 
-export default connect()(Description)
+export default Description

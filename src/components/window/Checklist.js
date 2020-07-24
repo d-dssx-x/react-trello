@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import './Checklist.scss'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {
   changeChecklistTitle,
   addNewItemChecklist,
@@ -9,10 +9,11 @@ import TextareaBlock from '../../components/textareaBlock'
 import Item from './CheckItem.js'
 
 
-const Checklist = ({checklist: {title, items}, id, dispatch}) => {
+const Checklist = ({checklist: {title, items}, id}) => {
   const [showInput, setShowInput] = useState(true)
   const [newItem, setNewItem] = useState('')
   const ref = useRef(null)
+  const dispatch = useDispatch()
 
   const onChangeTitleHandler = (event) => {
     return dispatch(changeChecklistTitle({
@@ -94,4 +95,4 @@ const Checklist = ({checklist: {title, items}, id, dispatch}) => {
 }
 
 
-export default connect()(Checklist)
+export default Checklist

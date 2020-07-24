@@ -4,12 +4,11 @@ import './index.scss'
 const Header = () => {
   return (
     <header className="header">
-      <div className="logo">
-        <span className="text">React-Trello</span>
+      <div className="header__logo">
+        <span className="header__text">React-Trello</span>
       </div>
     </header>
   )
 }
-
 
 export default Header

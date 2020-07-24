@@ -12,13 +12,13 @@
   height: $header-height;
   background-color: rgba($color: #000000, $alpha: .2);
   z-index: -1;
-  .logo {
-    
-    .text {
-      color: #ffff;
-      font-size: 23px;
-      font-style: italic;
-    }
+  &__logo {
+
+  }
+  &__text {
+    color: #ffff;
+    font-size: 23px;
+    font-style: italic;
   }
 
 

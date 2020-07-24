@@ -5,11 +5,11 @@ const Buttons = ({title, onRes, onRej}) => {
   return (
     <div className="buttons">
       <button
-        className="res"
+        className="buttons__res"
         id="res"
         onClick={onRes}>{title}</button>
       <button
-        className="rej"
+        className="buttons__rej"
         id="rej"
         onClick={onRej}>
         <i
