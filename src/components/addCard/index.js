@@ -49,6 +49,7 @@ const AddCard = ({status, dispatch}) => {
       {!show && <span>+ Add card</span>}
       {show &&
         <TextareaBlock
+          title={'Add card'}
           placeholder={'Enter a title of this card...'}
           value={title}
           onChangeHandler={onChangeHandler}

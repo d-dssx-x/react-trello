@@ -6,7 +6,14 @@ import {
   CHANGE_TITLE,
   ADD_DESC,
   ADD_COVER_COLOR,
-  CHANGE_TAG} from '../actions'
+  CHANGE_TAG,
+  ADD_CHECKLIST,
+  CHANGE_TITLE_CHECKLIST,
+  ADD_NEW_ITEM_CHECKLIST,
+  CHEKED_ITEM_CHECKLIST,
+  CHENGE_ITEM_TITLE_CHECKLIST,
+  DELETE_CHECKLIST,
+  DELETE_ITEM_CHECKLIST} from '../types'
 
 const init = [
   {
@@ -29,6 +36,7 @@ const init = [
     status: 'todo',
     desc: 'dasdsd',
     tag: '3',
+    color: '#e3324a',
   },
   {
     title: 'Click',
@@ -43,11 +51,70 @@ const init = [
     status: 'done',
     desc: 'dasdadasdasdasdsd',
     tag: '5',
+    checklist: {
+      title: 'some checklist',
+      items: [
+        {
+          title: 'Some title',
+          id: 'check_1',
+          done: false,
+        },
+        {
+          title: 'Some title',
+          id: 'check_2',
+          done: true,
+        },
+      ],
+    },
   },
 ]
 
 export const todosReducers = (state = init, action) => {
   switch (action.type) {
+    case DELETE_ITEM_CHECKLIST:
+      return state.map((el) => el.id === action.values.owner
+      ?{...el, checklist: {...el.checklist,
+        items: [
+          ...el.checklist.items.filter((el) => el.id !== action.values.id)]}}
+          : el)
+    case DELETE_CHECKLIST:
+      return state
+          .map((el) => el.id === action.values.owner
+          ? {
+            id: el.id,
+            title: el.title,
+            tag: el.tag,
+            status: el.status,
+            desc: el.desc}
+          : el)
+    case CHENGE_ITEM_TITLE_CHECKLIST:
+      return state.map((el) => el.id === action.values.owner
+      ?{...el, checklist: {...el.checklist,
+        items: [...el.checklist.items.map((el) => el.id === action.values.id
+          ? {...el, title: action.values.title}:el)]}} : el)
+    case CHEKED_ITEM_CHECKLIST:
+      return state.map((el) => el.id === action.values.owner
+      ?{...el, checklist: {...el.checklist,
+        items: [...el.checklist.items.map((el) => el.id === action.values.id
+          ? {...el, done: action.values.done}:el)]}} : el)
+    case ADD_NEW_ITEM_CHECKLIST:
+      return state.map((el) => el.id === action.values.id
+        ? {...el, checklist: {...el.checklist, items: [...el.checklist.items, {
+          title: action.values.title,
+          id: 'chek_' + Date.now(),
+          done: false,
+        }]}}: el)
+    case CHANGE_TITLE_CHECKLIST:
+      return state
+          .map((el) => el.id === action.values.id
+          ? {...el, checklist:
+            {...el.checklist, title: action.values.title}}: el)
+    case ADD_CHECKLIST:
+      return state.map((el) => el.id === action.id ? {...el, checklist: {
+        title: '',
+        items: [],
+      }} : el)
+
     case CHANGE_TAG:
       return state
           .map((el) => el.id === action.values.targetId
@@ -59,7 +126,6 @@ export const todosReducers = (state = init, action) => {
         status: action.values.status,
         id: Date.now().toString(),
         desc: '',
-        tag: '1',
       }]
     case CHANGE_TITLE:
       return state
@@ -88,6 +154,7 @@ export const todosReducers = (state = init, action) => {
       return state
           .map((el)=> el.id === action.values.id
           ? {...el, color: action.values.color} : el)
+    default:
+      return state
   }
-  return state
 }

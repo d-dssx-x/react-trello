@@ -1,5 +1,5 @@
 import React from 'react'
-import './Cover.scss'
+import './index.scss'
 import {colors} from '../../data/colors'
 import Color from './Color'
 
@@ -17,14 +17,8 @@ const Cover = ({onCancel, id, color}) => {
       </div>
       <div className="colors">
         <span>Colors</span>
-        <div className="row">
-          {items.slice(0, 3).map((el, i)=> <Color
-            key={i}
-            {...el}
-            current={color}/>)}
-        </div>
-        <div className="row">
-          {items.slice(3, 6).map((el, i)=> <Color
+        <div className="colors__block">
+          {items.map((el, i) => <Color
             key={i}
             {...el}
             current={color}/>)}

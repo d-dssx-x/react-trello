@@ -1,10 +1,9 @@
 import React, {useState, useRef, useEffect} from 'react'
-import './Lables.scss'
+import './index.scss'
 import {connect} from 'react-redux'
-import {changeTagTitle, changeTag} from '../../redux/actions'
+import {changeTag, changeTagTitle} from '../../redux/actions'
 
 const Lable = ({color, id, title, currentTag, targ, dispatch}) => {
-  console.log(id, currentTag)
   const [disable, setDisable] = useState(true)
   const [selected, setSelected] = useState(null)
   const ref = useRef()
@@ -13,16 +12,34 @@ const Lable = ({color, id, title, currentTag, targ, dispatch}) => {
   }
 
   const onClickHandler = () => {
+    if (!disable) return
     return dispatch(changeTag({
       targetId: targ,
       id,
     }))
   }
+  const onClickIconHandler = (event) => {
+    event.stopPropagation()
+    return setDisable(!disable)
+  }
 
+  const onChangText = (event) => {
+    return dispatch(changeTagTitle({
+      id,
+      title: event.target.value,
+    }))
+  }
+
+  const onKeyPressHandler = (event) => {
+    if (event.key === 'Enter') {
+      ref.current.blur()
+      setDisable(true)
+    }
+  }
 
   useEffect(() => {
     if (currentTag === id) {
-      setSelected({opacity: .5})
+      setSelected({opacity: .8})
     } else {
       setSelected({})
     }
@@ -35,11 +52,16 @@ const Lable = ({color, id, title, currentTag, targ, dispatch}) => {
       title='click to select or dbclick to change title'
       onDoubleClick={disableHandler}
       className="lable">
+      <i
+        onClick={onClickIconHandler}
+        className="fas fa-pencil-alt"></i>
       <input
         ref={ref}
         disabled={disable}
         value={title}
-      ></input>
+        onChange={onChangText}
+        onKeyPress={onKeyPressHandler}
+      />
     </div>
   )
 }

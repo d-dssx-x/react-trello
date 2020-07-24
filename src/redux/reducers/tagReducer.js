@@ -1,4 +1,4 @@
-import {CHANGE_TAG_TITLE} from '../actions'
+import {CHANGE_TAG_TITLE} from '../types'
 const init = [
   {
     id: '1',
@@ -37,6 +37,7 @@ export const tagReducer = (state = init, action) => {
       return state
           .map((el) => el.id === action.values.id
           ? {...el, title: action.values.title}: el)
+    default:
+      return state
   }
-  return state
 }

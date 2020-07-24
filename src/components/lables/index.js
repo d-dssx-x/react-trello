@@ -1,5 +1,5 @@
 import React from 'react'
-import './Lables.scss'
+import './index.scss'
 import {connect} from 'react-redux'
 import Lable from './Lable'
 

@@ -1,17 +1,30 @@
 import React, {useState} from 'react'
 import './index.scss'
-import Cover from './Cover'
-import Lables from './Lables'
+import Cover from '../cover'
+import Lables from '../lables/'
+import {connect} from 'react-redux'
+import {addCheckList} from '../../redux/actions'
 
 
 const Menu = (props) => {
+  const {id, tag, checklist, dispatch} = props
   const [showCover, setShowCover] = useState(false)
   const [showLables, setShowLables] = useState(false)
   const onClickShowCoverHandler = () => {
+    setShowLables(false)
     return setShowCover(!showCover)
   }
   const onClickShowLablesHandler = () => {
+    setShowCover(false)
     return setShowLables(!showLables)
+  }
+
+  const createCheckbox = () => {
+    if (!checklist) {
+      dispatch(addCheckList({
+        id,
+      }))
+    }
   }
 
   return (
@@ -29,14 +42,18 @@ const Menu = (props) => {
         title={'Lables'}
         onClick={onClickShowLablesHandler}/>
       {showLables && <Lables
-        targ={props.id}
-        currentTag={props.tag}
+        targ={id}
+        currentTag={tag}
         onCancel={onClickShowLablesHandler}/>}
+      <Button
+        title={'Checklist'}
+        onClick={createCheckbox}
+      />
     </div>
   )
 }
 
-export default Menu
+export default connect()(Menu)
 
 const Button = ({title, onClick}) => {
   return (

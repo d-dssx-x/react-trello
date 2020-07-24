@@ -1,0 +1,20 @@
+@import '../../scss/var';
+.window__lables {
+  margin-top: 10px;
+  width: 100%;
+
+  .lables__colors {
+    display: flex;
+    margin-top: 10px;
+    .lables__color {
+      width: 50px;
+      height: 30px;
+      border-radius: $border-radius;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

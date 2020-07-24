@@ -12,7 +12,10 @@ const Buttons = ({title, onRes, onRej}) => {
         className="rej"
         id="rej"
         onClick={onRej}>
-        <i className="fas fa-times"></i>
+        <i
+          id="rej"
+          onClick={onRej}
+          className="fas fa-times"></i>
       </button>
     </div>
   )

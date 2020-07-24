@@ -60,6 +60,7 @@ const AddList = ({index, dispatch}) => {
       {!show && <span>+ Add list . . .</span>}
       {show &&
         <TextareaBlock
+          title="Add a list"
           value={title}
           onClickButtonsHandler={onClickButtonsHandler}
           onChangeHandler={onChangeHandler}

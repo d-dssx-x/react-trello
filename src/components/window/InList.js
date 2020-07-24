@@ -1,6 +1,6 @@
 import React from 'react'
 import './InList.scss'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 const InList = ({id, statuses}) => {
   const title = statuses.find((el) => el.id === id).title

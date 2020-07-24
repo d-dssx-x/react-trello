@@ -1,4 +1,4 @@
-import {CHANGE_LIST_TITLE, ADD_NEW_LIST} from '../actions'
+import {CHANGE_LIST_TITLE, ADD_NEW_LIST} from '../types'
 
 const init = [
   {

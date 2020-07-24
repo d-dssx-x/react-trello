@@ -1,17 +1,20 @@
-export const CHANGE_LIST_TITLE = 'CHANGE_LIST_TITLE'
-export const ADD_NEW_LIST = 'ADD_NEW_LIST'
-
-export const ADD_NEW_TASK = 'ADD_NEW_TASK'
-export const SWITCH_CARDS = 'SWITCH_CARDS'
-export const CHENGE_STATUS = 'CHANGE_STATUS'
-export const CHANGE_TITLE = 'CHANGE_TITLE'
-export const ADD_DESC = 'ADD_DESC'
-export const ADD_COVER_COLOR = 'ADD_COVER_COLOR'
-export const CHANGE_TAG = 'CHANGE_TAG'
-
-
-export const CHANGE_TAG_TITLE = 'CHANGE_TAG_TITLE'
-
+import {
+  CHANGE_LIST_TITLE,
+  ADD_COVER_COLOR,
+  ADD_DESC, ADD_NEW_LIST,
+  SWITCH_CARDS,
+  ADD_NEW_TASK,
+  CHANGE_TAG,
+  CHANGE_TAG_TITLE,
+  CHANGE_TITLE,
+  CHENGE_STATUS,
+  ADD_CHECKLIST,
+  CHANGE_TITLE_CHECKLIST,
+  ADD_NEW_ITEM_CHECKLIST,
+  CHEKED_ITEM_CHECKLIST,
+  CHENGE_ITEM_TITLE_CHECKLIST,
+  DELETE_CHECKLIST,
+  DELETE_ITEM_CHECKLIST} from '../types'
 
 export const changeListTitle = (values) => {
   return {
@@ -104,6 +107,83 @@ export const changeTag = (values) => {
     type: CHANGE_TAG,
     values: {
       ...values,
+    },
+  }
+}
+
+
+export const addCheckList = (values) => {
+  return {
+    type: ADD_CHECKLIST,
+    id: values.id,
+  }
+}
+
+
+export const changeChecklistTitle = (values) => {
+  return {
+    type: CHANGE_TITLE_CHECKLIST,
+    values: {
+      id: values.id,
+      title: values.title,
+    },
+  }
+}
+
+
+export const addNewItemChecklist = (values) => {
+  return {
+    type: ADD_NEW_ITEM_CHECKLIST,
+    values: {
+      id: values.id,
+      title: values.title,
+    },
+  }
+}
+
+
+export const checkdItemChecklist = (values) => {
+  return {
+    type: CHEKED_ITEM_CHECKLIST,
+    values: {
+      id: values.id,
+      owner: values.owner,
+      done: values.done,
+    },
+  }
+}
+
+
+// export const CHENGE_ITEM_TITLE_CHECKLIST
+
+export const changeItemTitleChecklist = (values) => {
+  return {
+    type: CHENGE_ITEM_TITLE_CHECKLIST,
+    values: {
+      owner: values.owner,
+      id: values.id,
+      title: values.title,
+    },
+  }
+}
+
+
+export const deleteChecklist = (values) => {
+  return {
+    type: DELETE_CHECKLIST,
+    values: {
+      owner: values.owner,
+    },
+  }
+}
+
+
+export const deleteItemChecklist = (values) => {
+  return {
+    type: DELETE_ITEM_CHECKLIST,
+    values: {
+      owner: values.owner,
+      id: values.id,
     },
   }
 }

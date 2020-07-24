@@ -44,6 +44,7 @@
     width: 100%;
     padding: 0 10px;
     .lable {
+      position: relative;
       margin-bottom: 10px;
       display: flex;
       justify-content: center;
@@ -54,23 +55,47 @@
       border-radius: $border-radius;
       cursor: pointer;
       user-select: none;
+
+      i {
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        opacity: 0;
+        padding: 5px;
+        border-radius: $border-radius;
+        &:hover {
+          background-color: rgb(150, 150, 150);
+          color: #000;
+        }
+        
+      }
+
       &:hover {
-        opacity: .7;
+        opacity: .8;
+
+        i {
+          opacity: 1;
+        }
       }
 
       input {
-        background: inherit;
         color: #fff;
+        background: rgb(43, 42, 42);
+        padding: 3px;
         border: none;
         cursor: pointer;
         user-select: none;
-
+        outline: 2px solid rgba(28,110,164,0.35);
         &:hover {
           cursor: pointer;
         }
         &:focus {
           outline: none;
           cursor: auto;
+        }
+        &:disabled {
+          outline: none;
+          background: inherit;
         }
       }
     }

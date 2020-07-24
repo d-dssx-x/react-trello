@@ -9,7 +9,8 @@ const TextareaBlock = ({
   onChangeHandler,
   onKeyHandler,
   onClickButtonsHandler,
-  placeholder}) => {
+  placeholder,
+  title}) => {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const TextareaBlock = ({
         maxRows={3}
         autoFocus/>
       <Buttons
-        title="Add card"
+        title={title}
         onRes={onClickButtonsHandler}
         onRej={onClickButtonsHandler}/>
     </div>

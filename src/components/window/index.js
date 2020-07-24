@@ -1,24 +1,25 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import './index.scss'
-import Buttons from '../buttons'
 import Header from './Header'
 import InList from './InList'
 import Description from './Description'
 import Menu from '../menu'
+import Lables from './Lables'
+import Checklist from './Checklist'
 
 
-const Window = ({title, id, status, color, desc, tag, onCancel}) => {
+const Window = ({title, id, status, color, desc, tag, checklist, onCancel}) => {
   const canelClickHandler = () => {
     return onCancel()
   }
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
+  // useEffect(() => {
+  //   document.body.style.overflow = 'hidden'
 
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+  //   return () => {
+  //     document.body.style.overflow = 'auto'
+  //   }
+  // }, [])
 
 
   return (
@@ -27,6 +28,7 @@ const Window = ({title, id, status, color, desc, tag, onCancel}) => {
       className="window">
       <div className="dialog">
         <Header
+          color={color}
           title={title}
           id={id}
           status={status}
@@ -38,10 +40,19 @@ const Window = ({title, id, status, color, desc, tag, onCancel}) => {
             <Description
               id={id}
               desc={desc}/>
+            {!!tag &&
+              <Lables
+                tag={tag}/>}
+            {!!checklist &&
+              <Checklist
+                checklist={checklist}
+                id={id}
+              />
+            }
           </div>
           <div className="right">
             <Menu
-              {...{id, title, status, desc, color, tag}}/>
+              {...{id, title, status, desc, color, tag, checklist}}/>
           </div>
         </div>
       </div>

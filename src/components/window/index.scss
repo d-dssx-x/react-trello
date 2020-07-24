@@ -1,21 +1,18 @@
 @import '../../scss/var';
 .window {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
-  border-radius: $border-radius;
   z-index: 100000;
   cursor: default;
   .dialog {
+    position: relative;
     width: 650px;
-    height: 90%;
+    min-height: 90vh;
     margin: 35px auto;
     background-color: #ffff;
     padding: 20px;
-
-
     &__col {
       display: flex;
       position: relative;

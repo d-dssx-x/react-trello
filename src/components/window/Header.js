@@ -1,12 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useRef} from 'react'
 import './Header.scss'
 import {connect} from 'react-redux'
 import {changeTitle} from '../../redux/actions'
 import Textarea from 'react-textarea-autosize'
 
-const Header = ({title, id, dispatch, onCancel}) => {
+const Header = ({title, id, color, dispatch, onCancel}) => {
   const ref = useRef(null)
-
   const onChangeHandler = (event) => {
     return dispatch(changeTitle({id, title: event.target.value}))
   }
@@ -22,21 +21,26 @@ const Header = ({title, id, dispatch, onCancel}) => {
     return onCancel()
   }
   return (
-    <div className="dialog__header">
-      <i className="fas fa-heading"></i>
-      <Textarea
-        className="textarea"
-        ref={ref}
-        onChange={onChangeHandler}
-        value={title}
-        onKeyPress={onKeyPressHandler}
-        maxLength={140}
-        maxRows={3}/>
-      <button
-        onClick={onClickCancelHeandler}>
-        <i className="fas fa-times"></i>
-      </button>
-    </div>
+    <>
+      <div
+        style={{backgroundColor: color}}
+        className="header__cover-color"/>
+      <div className="dialog__header">
+        <i className="fas fa-heading"></i>
+        <Textarea
+          className="textarea"
+          ref={ref}
+          onChange={onChangeHandler}
+          value={title}
+          onKeyPress={onKeyPressHandler}
+          maxLength={140}
+          maxRows={3}/>
+        <button
+          onClick={onClickCancelHeandler}>
+          <i className="fas fa-times"></i>
+        </button>
+      </div>
+    </>
   )
 }
 

@@ -56,11 +56,12 @@ const Card = ({item, title, index, status, color, tag, dispatch}) => {
       return setTextColor('#fff')
     }
     return setTextColor('#000')
-  }, [color])
+  }, [color, tag])
 
   useEffect(() => {
     const con = (event) => {
-      if (event.target === refHelp.current || event.target.id === 'tag') {
+      if (tag &&
+        (event.target === refHelp.current || event.target.id === 'tag')) {
         setShowTag(true)
       } else {
         setShowTag(false)
@@ -70,7 +71,7 @@ const Card = ({item, title, index, status, color, tag, dispatch}) => {
     return () => {
       document.removeEventListener('mouseover', con)
     }
-  }, [])
+  }, [tag])
 
   return (
     <>

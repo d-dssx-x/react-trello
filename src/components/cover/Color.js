@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import './Cover.scss'
+import './index.scss'
 import {connect} from 'react-redux'
 import {addCoverColor} from '../../redux/actions'
 
